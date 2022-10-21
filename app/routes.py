@@ -4,7 +4,7 @@ class Planet:
     def __init__(self, id, name, description):
         self.id = id
         self.name = name
-        self.breed = description
+        self.description = description
 
 PLANETS = [
     Planet(1, 'Mercury', ''),
@@ -13,9 +13,9 @@ PLANETS = [
     Planet(4, 'Mars', ''),
     Planet(5, 'Jupiter', ''),
     Planet(6, 'Saturn', ''),
-    Planet(7, 'Uranus' ''),
+    Planet(7, 'Uranus', ''),
     Planet(8, 'Neptune', ''),
-    Planet(9, 'Pluto', ''))
+    Planet(9, 'Pluto', '')
 ]
 
 
@@ -29,7 +29,7 @@ def get_all_planets():
         planets_response.append({
             "id": planet.id,
             "name": planet.name,
-            "age": planet.description,
+            "description": planet.description,
         })
 
     return jsonify(planets_response)
