@@ -7,15 +7,15 @@ class Planet:
         self.description = description
 
 PLANETS = [
-    Planet(1, 'Mercury', ''),
-    Planet(2, 'Venus', ''),
-    Planet(3, 'Earth', ''),
-    Planet(4, 'Mars', ''),
-    Planet(5, 'Jupiter', ''),
-    Planet(6, 'Saturn', ''),
-    Planet(7, 'Uranus', ''),
-    Planet(8, 'Neptune', ''),
-    Planet(9, 'Pluto', '')
+    Planet(1, 'Mercury', 'Planet of Communication'),
+    Planet(2, 'Venus', 'Planet of Love and Money'),
+    Planet(3, 'Earth', 'Home'),
+    Planet(4, 'Mars', 'Planet of Passion'),
+    Planet(5, 'Jupiter', 'Planet of Luck'),
+    Planet(6, 'Saturn', 'Planet of Karma'),
+    Planet(7, 'Uranus', 'Planet of Rebellion'),
+    Planet(8, 'Neptune', 'Planet of Illusion'),
+    Planet(9, 'Pluto', 'Planet of Power')
 ]
 
 
