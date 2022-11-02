@@ -134,7 +134,9 @@ def validate_planet(id):
         }, 400
 
     #id not found
-    # for planet in planets:
-    #     if planet_id == planet.id:
-    #         return vars(planet)
-    # abort(make_response(jsonify(description="Planet not found"),404))
+    planets = Planet.query.all()
+    
+    for planet in planets:
+        if planet_id == planet.id:
+            return vars(planet)
+    abort(make_response(jsonify(description="Planet not found"),404))
