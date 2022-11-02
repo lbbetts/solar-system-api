@@ -70,7 +70,7 @@ def get_one_planet(id):
         }
     return planet
 
-""" @planets_bp.route('/<id>', methods=['PUT'])
+@planets_bp.route('/<id>', methods=['PUT'])
 def update_planet():
     planet = validate_planet(id)
 
@@ -79,12 +79,11 @@ def update_planet():
     request_body = request.get_json()
 
     planet.title=request_body["title"],
-    planet.id=request_body["id"],
     planet.description=request_body["description"]
     
     db.session.commit()
 
-    return make_response(f"Planet {planet.title} has been successfully updated!", 201) """
+    return make_response(f"Planet {planet.title} has been successfully updated!", 201)
 
 @planets_bp.route('', methods=['POST'])
 def create_planet():
