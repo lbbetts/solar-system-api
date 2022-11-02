@@ -6,9 +6,9 @@ from app import db
 planets_bp = Blueprint('planets_bp', __name__, url_prefix='/planets')
 
 # class Planet:
-#     def __init__(self, id, name, description):
+#     def __init__(self, id, title, description):
 #         self.id = id
-#         self.name = name
+#         self.title = title
 #         self.description = description
 
 # PLANETS = [
@@ -40,23 +40,20 @@ def get_all_planets():
     # planets = Planet.query.all()
     # planets_response = []
 
-    # planet_name_query = request.args.get("name")
+    # planet_title_query = request.args.get("title")
 
-    # if planet_name_query:
-    #     planets = Planet.query.filter_by(name=planet_name_query)
+    # if planet_title_query:
+    #     planets = Planet.query.filter_by(title=planet_title_query)
     # else:
     #     planets = Planet.query.all()
 
     # for planet in planets:
     #     planets_response.append({
     #         "id": planet.id,
-    #         "name": planet.name,
+    #         "title": planet.title,
     #         "description": planet.description
     #         })
     # return jsonify(planets_response)  
-
-
-
 
 @planets_bp.route('/<id>', methods=['GET'])
 def get_one_planet(id):
@@ -67,11 +64,27 @@ def get_one_planet(id):
 
     if request.method == "GET":
         return {
-            "name": planet.name,
+            "title": planet.title,
             "id": planet.id,
             "description": planet.description
         }
     return planet
+
+""" @planets_bp.route('/<id>', methods=['PUT'])
+def update_planet():
+    planet = validate_planet(id)
+
+    planet = Planet.query.get(id)
+
+    request_body = request.get_json()
+
+    planet.title=request_body["title"],
+    planet.id=request_body["id"],
+    planet.description=request_body["description"]
+    
+    db.session.commit()
+
+    return make_response(f"Planet {planet.title} has been successfully updated!", 201) """
 
 @planets_bp.route('', methods=['POST'])
 def create_planet():
@@ -92,13 +105,13 @@ def create_planet():
     # planet = Planet.query.get(id)
     # request_body = request.get_json()
 
-    # planet.name=request_body["name"],
+    # planet.title=request_body["title"],
     # # planet.id=request_body["id"],
     # planet.description=request_body["description"]
     
     # db.session.commit()
 
-    # return make_response(f"Planet {planet.name} has been successfully created!", 201)
+    # return make_response(f"Planet {planet.title} has been successfully created!", 201)
 
 
 #validation func
