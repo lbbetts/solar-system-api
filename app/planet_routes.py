@@ -71,7 +71,7 @@ def get_one_planet(id):
     return planet
 
 @planets_bp.route('/<id>', methods=['PUT'])
-def update_planet():
+def update_planet(id):
     planet = validate_planet(id)
 
     planet = Planet.query.get(id)
