@@ -71,7 +71,7 @@ def get_one_planet(id):
     return planet
 
 @planets_bp.route('/<id>', methods=['PUT'])
-def update_planet():
+def update_planet(id):
     planet = validate_planet(id)
 
     planet = Planet.query.get(id)
@@ -112,6 +112,16 @@ def create_planet():
 
     # return make_response(f"Planet {planet.title} has been successfully created!", 201)
 
+@planets_bp.route('/<id>', methods=['DELETE'])
+def delete_planet(id):
+    planet = validate_planet(id)
+
+    planet = Planet.query.get(id)
+
+    db.session.delete(planet)
+    db.session.commit()
+
+    return make_response(f"Planet {planet.title} has been successfully deleted!", 201)
 
 #validation func
 def validate_planet(id):
