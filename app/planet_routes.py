@@ -72,11 +72,14 @@ def get_one_planet(id):
 
 @planets_bp.route('/<id>', methods=['PUT'])
 def update_planet(id):
+    request_body = request.get_json()
+    if "title" not in request_body or "description" not in request_body:
+        return make_response("Invalid Request", 400)
+        
     planet = validate_planet(id)
 
     planet = Planet.query.get(id)
 
-    request_body = request.get_json()
 
     planet.title=request_body["title"],
     planet.description=request_body["description"]
@@ -129,9 +132,7 @@ def validate_planet(id):
     try:
         planet_id = int(id)
     except ValueError:
-        return {
-            "message": "Invalid planet id"
-        }, 400
+        abort(make_response(jsonify(description="Planet invalid"),400))
 
     #id not found
     planets = Planet.query.all()
