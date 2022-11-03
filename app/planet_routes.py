@@ -141,3 +141,13 @@ def validate_planet(id):
         if planet_id == planet.id:
             return vars(planet)
     abort(make_response(jsonify(description="Planet not found"),404))
+
+
+    # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # if not test_config:
+    #     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    #         "SQLALCHEMY_DATABASE_URI")
+    # else:
+    #     app.config["TESTING"] = True
+    #     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+    #         "SQLALCHEMY_TEST_DATABASE_URI")
